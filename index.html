@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="http://pure.github.io/pure/libs/pure.js"></script>
+
+    <title>Image To Table</title>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">Image2Table</a>
+        </div>
+    </nav>
+
+    <div class="home-container screen">
+        <p class="instruction-text"> Select an image to convert it to a table </p>
+        <i class="material-icons dp48 camera-icon">settings_overscan</i>
+        <input type="file" class="waves-effect waves-light btn blue image-in"></input>
+    </div>
+
+    <div class="processing-container screen inactive">
+        <div class="pre-convert">
+            <img src="res/table.png" style="display: none;" class="user-image">
+            <img src="res/table.png" style="display: block;" class="user-image-ui">
+
+            <input type="number" class="cols-input" placeholder="Number of Columns">
+            <input type="number" class="rows-input" placeholder="Number of Rows">
+
+            <button class="waves-effect waves-light btn blue convert-btn"> Convert </button>
+
+            <div class="progress inactive">
+                <div class="indeterminate"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="result-container screen inactive">
+        <table class="tbl">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button class="waves-effect waves-light btn blue export-btn"> Export CSV </button>
+    </div>
+
+    <canvas id="canvas-out" width="100px" height="100px"></canvas>
+
+
+    <script src="lib/opencv.js"></script>
+    <script src="lib/utils.js"></script>
+    <script src="lib/ocrad.js"></script>
+    <script src="lib/FileSaver.min.js"></script>
+    <script src="src/converter.js"></script>
+    <script src="src/index.js"></script>
+</body>
+
+</html>
